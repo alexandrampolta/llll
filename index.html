@@ -9,32 +9,123 @@ background-color:lightblue;
 }
 .full{
 
-background-color:green;
+background-color:yellow;
 width:80%;
 height:80%;
-position:relative;
+position:absolute;
 left:10%;
-top:15%;
+top:10%;
 }
 
-.test{
+.mov1{
 background-color:red;
-width:20%;
-height:15%;
+width:10%;
+height:10%;
 position: relative;
-left:80%;
-top:25%;
+left:90%;
+top:20%;
 
 }
 </style>
 <body>
- 
-<div class="full">
-<div class="test" ></div>
-
+ <div id="worlds">
+ <p id="topvalue"></p>
+ <p id="addo"></p>
+ </div>
+<div id="full" class="full">
+<div id="mov1" class="mov1" ></div>
 </div>
 
 </body>
 <script>
+
+//left position editing 
+document.getElementById("mov1").style.left="90%"
+
+setInterval(function(){
+  
+topp = document.getElementById("mov1").style.left;
+topor = topp.substring(0,2);
+document.getElementById("topvalue").innerText = topor;
+
+  if(topp=="90%"){
+  vltop = document.getElementById("topvalue").innerText
+vlfl = parseFloat(vltop)-1
+  document.getElementById("mov1").style.left= vlfl+"%";
+  document.getElementById("topvalue").innerText = vlfl;
+  
+    document.getElementById("addo").innerText = "-" 
+  
+document.querySelector("#mov1").style.backgroundColor="green";
+document.querySelector("#full").style.backgroundColor="yellow";
+
+
+  }else if(topp=="0%"){
+  
+  
+vltop = document.getElementById("topvalue").innerText
+vlfl = parseFloat(vltop)+1
+  document.getElementById("mov1").style.left= vlfl+"%";
+  document.getElementById("topvalue").innerText = vlfl;
+  document.getElementById("addo").innerText = "+" 
+  
+document.querySelector("#mov1").style.backgroundColor="yellow";
+document.querySelector("#full").style.backgroundColor="green";
+
+
+
+  }else{
+  ad =  document.getElementById("addo").innerText
+    if(ad=="+"){
+vltop = document.getElementById("topvalue").innerText
+vlfl = parseFloat(vltop)+1
+  document.getElementById("mov1").style.left= vlfl+"%";
+  document.getElementById("topvalue").innerText = vlfl;
+  }else{
+  
+  vltop = document.getElementById("topvalue").innerText
+vlfl = parseFloat(vltop)-1
+  document.getElementById("mov1").style.left= vlfl+"%";
+  document.getElementById("topvalue").innerText = vlfl;
+  
+  }
+  
+  
+  
+  
+  }
+  
+
+
+
+
+ }, 20);
+//left position editing  ended
+ 
+setInterval(function(){
+//top position editing  start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//top position editing ended
+
+
+
+
+
+
+},00);
 </script>
 </html>
